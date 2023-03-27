@@ -45,6 +45,7 @@ public class LoginScreen : UIWindow
 
     private void OnEnable()
     {
+        ShowPassword = false;
         _showPasswordButton.onClick.AddListener(OnShowPasswordButtonClick);
         _signUpButton.onClick.AddListener(OnSignUpButtonClick);
         _logInButton.onClick.AddListener(OnSignUpButtonClick);
