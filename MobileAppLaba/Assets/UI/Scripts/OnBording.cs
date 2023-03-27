@@ -1,27 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System;
 
-[Serializable]
-public struct OnbordingStepModel
-{
-    public Sprite StepSprite;
-}
-
 public class OnBording : UIWindow
 {
-    [SerializeField] private GameObject[] _steps;
-    [SerializeField] private OnbordingStepModel[] _models;
+    [SerializeField] private GameObject[] _steps;  
     [SerializeField] private Button _nextButton;
-    [SerializeField] private Button _skipButton;
-    [SerializeField] private Image _stepImage;
+    [SerializeField] private Button _skipButton;   
 
     public event EventHandler NextButtonClick;
     public event EventHandler SkipButtonClick;
 
     public int StepCount => _steps.Length;
+
+    public event EventHandler FinalStep;    
 
     public override void Show()
     {
@@ -41,12 +33,16 @@ public class OnBording : UIWindow
 
     public void SetStep(int id)
     {
+        if(id >= _steps.Length)
+        {
+            FinalStep?.Invoke(this, EventArgs.Empty);
+            return;
+        }
         for (int i = 0; i < _steps.Length; i++)
         {
             if(i == id)
             {
-                _steps[i].SetActive(true);
-                _stepImage.sprite = _models[i].StepSprite;
+                _steps[i].SetActive(true);                
             }
             else
             {
