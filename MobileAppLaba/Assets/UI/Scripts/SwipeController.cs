@@ -10,10 +10,7 @@ public enum SwipeDirection
 }
 
 public class SwipeController : MonoBehaviour
-{      
-    [SerializeField] float swipeThreshold = 50.0f; // Ïîðîã ñâàéïà
-    [SerializeField] private float transitionSpeed = 10.0f; // Ñêîðîñòü ïåðåõîäà ìåæäó ýêðàíàìè
-
+{
     public event EventHandler<SwipeDirection> Swiped;
 
     private Vector2 _start;
@@ -38,7 +35,6 @@ public class SwipeController : MonoBehaviour
             if (_end.x > _start.x)
             {                
                 Swiped?.Invoke(this, SwipeDirection.Right);
-                return;
             }
         }
     }
