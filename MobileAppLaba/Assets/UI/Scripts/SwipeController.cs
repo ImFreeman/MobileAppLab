@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.UI;
 
 public enum SwipeDirection
 {
@@ -12,8 +11,8 @@ public enum SwipeDirection
 
 public class SwipeController : MonoBehaviour
 {      
-    [SerializeField] float swipeThreshold = 50.0f; // Порог свайпа
-    [SerializeField] private float transitionSpeed = 10.0f; // Скорость перехода между экранами
+    [SerializeField] float swipeThreshold = 50.0f; // ГЏГ®Г°Г®ГЈ Г±ГўГ Г©ГЇГ 
+    [SerializeField] private float transitionSpeed = 10.0f; // Г‘ГЄГ®Г°Г®Г±ГІГј ГЇГҐГ°ГҐГµГ®Г¤Г  Г¬ГҐГ¦Г¤Гі ГЅГЄГ°Г Г­Г Г¬ГЁ
 
     public event EventHandler<SwipeDirection> Swiped;
 
